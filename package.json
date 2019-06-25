@@ -4,7 +4,7 @@
   "description": "SV Web Community Monthly Challenge: A Drogon's Quest (aka Snake Game)",
   "main": "index.js",
   "scripts": {
-    "build": "rollup --config",
+    "build": "rollup --config && cleancss -o s.css styles.ugly.css",
     "start": "http-server ./ -o index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +25,7 @@
     "@babel/preset-env": "^7.4.5",
     "@fortawesome/fontawesome-free": "^5.9.0",
     "clean-css": "^4.2.1",
+    "clean-css-cli": "^4.3.0",
     "rollup": "^1.15.6",
     "rollup-plugin-terser": "^5.0.0"
   },

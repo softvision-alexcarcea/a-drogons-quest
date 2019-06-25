@@ -1,7 +1,7 @@
 import Actor from './actor';
 import Board from './board';
 import Dispatcher from './dispatcher';
-import Renderer from './renderer';
+import Renderer from './very-basic-renderer';
 
 const
   width = 10,
@@ -22,22 +22,21 @@ export default class Game extends Dispatcher {
     super();
     
     this._engine = engine;
-    engine.on('update', () => this.update());
-    engine.on('start', () => this._renderer.start());
-    engine.on('pause', () => this._renderer.pause());
-    engine.on('stop', () => this._renderer.end());
-    
-    this.on('score', (value) => this._renderer.score(value));
+    engine.on('u', () => this.update());
+    engine.on('s', () => this._renderer.start());
+    engine.on('p', () => this._renderer.pause());
+    engine.on('o', () => this._renderer.end());
     
     document.documentElement.addEventListener('keydown', (event) => this.handle(event));
   }
   score(value) {
-    this.dispatch('score', (this._score = value));
+    this._score = value;
+    this._renderer.score(value)
   }
   start() {
     const actor = this._actor = new Actor();
     const board = this._board = new Board(width, height, actor);
-    const renderer = this._renderer = new Renderer(document.getElementById('game'), board);
+    const renderer = this._renderer = new Renderer(document.getElementById('g'), board);
     
     this._dir = DIR_LEFT;
     this._steer = null;
@@ -116,40 +115,25 @@ export default class Game extends Dispatcher {
     }
   }
   handle(event) {
-    switch (event.key) {
-      case 'w':
-      case 'ArrowUp':
-        if (this._dir !== DIR_DOWN) {
-          this._steer = DIR_UP;
-        }
-        break;
-      case 'a':
-      case 'ArrowLeft':
-        if (this._dir !== DIR_RIGHT) {
-          this._steer = DIR_LEFT;
-        }
-        break;
-      case 's':
-      case 'ArrowDown':
-        if (this._dir !== DIR_UP) {
-          this._steer = DIR_DOWN;
-        }
-        break;
-      case 'd':
-      case 'ArrowRight':
-        if (this._dir !== DIR_LEFT) {
-          this._steer = DIR_RIGHT;
-        }
-        break;
-      case 'Esc':
-      case 'Escape':
-      case 'Tab':
-        this._engine.pause();
-        break;
-      case 'Space':
-      case ' ':
+    const key = event.key;
+    if (key == 'w') {
+      if (this._dir !== DIR_DOWN) {
+        this._steer = DIR_UP;
+      }
+    } else if (key == 'a') {
+      if (this._dir !== DIR_RIGHT) {
+        this._steer = DIR_LEFT;
+      }
+    } else if (key == 's') {
+      if (this._dir !== DIR_UP) {
+        this._steer = DIR_DOWN;
+      }
+    } else if (key == 'd') {
+      if (this._dir !== DIR_LEFT) {
+        this._steer = DIR_RIGHT;
+      }
+    } else if (key == ' ') {
         this.toggle();
-        break;
     }
   }
 }

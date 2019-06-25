@@ -10,11 +10,11 @@ export default class Actor extends Dispatcher {
   }
   visit(x, y) {
     this._state.unshift({ x, y });
-    this.dispatch('visit', x, y);
+    this.dispatch('v', x, y);
   }
   leave() {
     const { x, y } = this._state.pop();
-    this.dispatch('leave', x, y);
+    this.dispatch('l', x, y);
   }
   current() {
     return this._state[0];

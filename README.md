@@ -32,3 +32,29 @@ then run the thing (`npm start`). There you go - that's all you need to know! En
 *P.S.:* Try _not_ to waste more than half a day attempting to beat the game...
 *P.P.S.:* I'm not ashamed to admit that I already lost 3 nights' worth of good sleep over this...
 and counting!
+
+Controls
+--------
+OK, admittedly, this may be more or less confusing, as it's not explicitly stated anywhere
+(well, anywhere in your face, except here and in the code, obviously)... So, here's the lowdown:
+  * `W` goes up
+  * `A` goes left
+  * `S` goes down
+  * `D` goes right (oh, the puns!)
+  * `Space` starts / pauses the game
+
+That's about all you'll need to know. Was it really that difficult to guess?...
+
+Configuration
+-------------
+If you're in the mood for something much, _much_, **much** nicer that this very basic, very fugly
+offering, make sure you check out the other commit (soon to be a tag) in this repository -
+the setup is identical (see the [How does I run dis?] section above), but you'll get a much more
+enjoyable experience out of it!
+
+Oh, yeah, almost forgot! In case you want to play around with it, `game.js` imports a very basic
+renderer for the stage from `very-basic-renderer.js` (mad naming skillz, huh?). You can easily swap
+this for the one in `renderer.js` and that'll get you a bunch of other goodies as well... or, yeah,
+just switch to the previous commit... sure, be lazy about it...
+
+That's about it! Enjoy! Be advised - it _can_ become addictive! You have been warned. KTHXBAI!

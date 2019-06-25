@@ -19,7 +19,7 @@ export default class Renderer {
         return cell;
       })
     ;
-    board.on('update', (x, y, state) => {
+    board.on('u', (x, y, state) => {
       switch (state) {
         case 1:
           this.actor(x, y);

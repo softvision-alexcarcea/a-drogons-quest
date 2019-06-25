@@ -1,0 +1,23 @@
+.z {
+  display: grid;
+  width: 300px;
+  grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+}
+.z::after {
+  content: attr(data-s);
+}
+.p::after {
+  content: "⏸️";
+}
+.o::after {
+  content: "🚫";
+}
+
+.c {
+  background: tan;
+  width: 30px;
+  height: 30px;
+}
+.a, .g {
+  background: red;
+}

@@ -25,21 +25,21 @@ export default class Engine extends Dispatcher {
       this._timer = setInterval(() => this.tick(), MS_PER_TICK);
     }
     this._state = STATE_RUNNING;
-    this.dispatch('start');
+    this.dispatch('s');
   }
   pause() {
     if (this._state === STATE_PAUSED) {
       return;
     }
     this._state = STATE_PAUSED;
-    this.dispatch('pause');
+    this.dispatch('p');
   }
   tick() {
     if (this._state === STATE_RUNNING) {
       try {
-        this.dispatch('update');
+        this.dispatch('u');
       } catch (e) {
-        console.error('Error encountered, forcefully stopping engine...', e);
+        console.error('ERR', e);
         this.stop();
       }
     }
@@ -53,7 +53,7 @@ export default class Engine extends Dispatcher {
       delete this._timer;
     }
     this._state = STATE_STOPPED;
-    this.dispatch('stop');
+    this.dispatch('o');
   }
   isPlaying() {
     return (this._state === STATE_RUNNING);
