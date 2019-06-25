@@ -1,0 +1,76 @@
+.canvas {
+  margin: 0 auto;
+  display: grid;
+  width: 300px;
+  grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+  position: relative;
+  background: forestgreen;
+}
+.canvas::before {
+  position: absolute;
+  color: red;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.init::before {
+  content: "PRESS SPACE TO START";
+}
+.paused::before {
+  content: "PAUSED";
+}
+.over::before {
+  content: "GAME OVER";
+}
+.canvas::after {
+  content: "Score: " attr(data-score);
+  display: block;
+  position: absolute;
+  top: 100%;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+}
+.empty {
+}
+.actor {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/dragon.svg") no-repeat center;
+}
+.cat {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/cat.svg") no-repeat center;
+}
+.crow {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/crow.svg") no-repeat center;
+}
+.dog {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/dog.svg") no-repeat center;
+}
+.dove {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/dove.svg") no-repeat center;
+}
+.fish {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/fish.svg") no-repeat center;
+}
+.frog {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/frog.svg") no-repeat center;
+}
+.hippo {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/hippo.svg") no-repeat center;
+}
+.horse {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/horse.svg") no-repeat center;
+}
+.kiwi-bird {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/kiwi-bird.svg") no-repeat center;
+}
+.otter {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/otter.svg") no-repeat center;
+}
+.spider {
+  background: url("./node_modules/@fortawesome/fontawesome-free/svgs/solid/spider.svg") no-repeat center;
+}
